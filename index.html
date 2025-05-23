@@ -48,13 +48,13 @@
     let turn = 1;
     let canvas, ctx, roomID = "", playerID = 0;
 
-    function drawBoard() {
-  ctx.clearRect(0, 0, 400, 400);
-
   // 背景を緑に塗る（白い石が見えるように）
   ctx.fillStyle = "#006400"; // 深緑
   ctx.fillRect(0, 0, 400, 400);
-
+  
+function drawBoard() {
+  ctx.clearRect(0, 0, 400, 400);
+  
   for (let y = 0; y < 8; y++) {
     for (let x = 0; x < 8; x++) {
       ctx.strokeStyle = "black";
@@ -65,19 +65,19 @@
         ctx.arc(x * 50 + 25, y * 50 + 25, 20, 0, Math.PI * 2);
 
         if (board[y][x] === 1) {
-          ctx.fillStyle = "black"; // 黒
-          ctx.fill();
+          ctx.fillStyle = "black"; // 黒い石
         } else if (board[y][x] === 2) {
-          ctx.fillStyle = "white"; // 白
-          ctx.fill();
-          ctx.lineWidth = 2;
-          ctx.strokeStyle = "black"; // 黒い縁
-          ctx.stroke();
+          ctx.fillStyle = "red";   // 赤い石
         }
+
+        ctx.fill();
       }
     }
   }
 }
+
+  
+  
 
 
     function getFlippedStones(x, y, color) {
