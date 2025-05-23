@@ -64,11 +64,14 @@
         ctx.beginPath();
         ctx.arc(x * 50 + 25, y * 50 + 25, 20, 0, Math.PI * 2);
 
-        if (board[y][x] === 1) {
-          ctx.fillStyle = "black"; // 黒い石
-        } else if (board[y][x] === 2) {
-          ctx.fillStyle = "white";   // 赤い石
-        }
+      
+        if (board[y][x]) {
+  　　　　　ctx.beginPath();
+  　　　　　ctx.arc(x * 50 + 25, y * 50 + 25, 20, 0, Math.PI * 2);
+  　　　　　ctx.fillStyle = board[y][x] === 1 ? "black" : "white"; // ← ここがポイント
+  　　　　　ctx.fill();
+        　　}        
+          
 
         ctx.fill();
       }
